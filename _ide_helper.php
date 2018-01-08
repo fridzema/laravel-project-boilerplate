@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.5.25 on 2017-12-14.
+ * Generated for Laravel 5.5.28 on 2018-01-08.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -1885,7 +1885,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the session store used by the guard.
          *
-         * @return \Illuminate\Contracts\Session\Session. 
+         * @return \Illuminate\Contracts\Session\Session 
          * @static 
          */ 
         public static function getSession()
@@ -3246,98 +3246,6 @@ namespace Illuminate\Support\Facades {
         public static function getQueuedCookies()
         {
             return \Illuminate\Cookie\CookieJar::getQueuedCookies();
-        }
-         
-    }
-
-    class Crypt {
-        
-        /**
-         * Determine if the given key and cipher combination is valid.
-         *
-         * @param string $key
-         * @param string $cipher
-         * @return bool 
-         * @static 
-         */ 
-        public static function supported($key, $cipher)
-        {
-            return \Illuminate\Encryption\Encrypter::supported($key, $cipher);
-        }
-        
-        /**
-         * Create a new encryption key for the given cipher.
-         *
-         * @param string $cipher
-         * @return string 
-         * @static 
-         */ 
-        public static function generateKey($cipher)
-        {
-            return \Illuminate\Encryption\Encrypter::generateKey($cipher);
-        }
-        
-        /**
-         * Encrypt the given value.
-         *
-         * @param mixed $value
-         * @param bool $serialize
-         * @return string 
-         * @throws \Illuminate\Contracts\Encryption\EncryptException
-         * @static 
-         */ 
-        public static function encrypt($value, $serialize = true)
-        {
-            return \Illuminate\Encryption\Encrypter::encrypt($value, $serialize);
-        }
-        
-        /**
-         * Encrypt a string without serialization.
-         *
-         * @param string $value
-         * @return string 
-         * @static 
-         */ 
-        public static function encryptString($value)
-        {
-            return \Illuminate\Encryption\Encrypter::encryptString($value);
-        }
-        
-        /**
-         * Decrypt the given value.
-         *
-         * @param mixed $payload
-         * @param bool $unserialize
-         * @return string 
-         * @throws \Illuminate\Contracts\Encryption\DecryptException
-         * @static 
-         */ 
-        public static function decrypt($payload, $unserialize = true)
-        {
-            return \Illuminate\Encryption\Encrypter::decrypt($payload, $unserialize);
-        }
-        
-        /**
-         * Decrypt the given string without unserialization.
-         *
-         * @param string $payload
-         * @return string 
-         * @static 
-         */ 
-        public static function decryptString($payload)
-        {
-            return \Illuminate\Encryption\Encrypter::decryptString($payload);
-        }
-        
-        /**
-         * Get the encryption key.
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function getKey()
-        {
-            return \Illuminate\Encryption\Encrypter::getKey();
         }
          
     }
@@ -6976,24 +6884,24 @@ namespace Illuminate\Support\Facades {
          * Merge new input into the current request's input array.
          *
          * @param array $input
-         * @return void 
+         * @return \Illuminate\Http\Request 
          * @static 
          */ 
         public static function merge($input)
         {
-            \Illuminate\Http\Request::merge($input);
+            return \Illuminate\Http\Request::merge($input);
         }
         
         /**
          * Replace the input for the current request.
          *
          * @param array $input
-         * @return void 
+         * @return \Illuminate\Http\Request 
          * @static 
          */ 
         public static function replace($input)
         {
-            \Illuminate\Http\Request::replace($input);
+            return \Illuminate\Http\Request::replace($input);
         }
         
         /**
@@ -12317,6 +12225,96 @@ namespace Illuminate\Support\Facades {
  
 }
 
+namespace Appstract\LushHttp { 
+
+    class LushFacade {
+        
+        /**
+         * Set the url with parameters.
+         *
+         * @param $url
+         * @param array|object $parameters
+         * @return $this 
+         * @static 
+         */ 
+        public static function url($url, $parameters = array())
+        {
+            return \Appstract\LushHttp\Lush::url($url, $parameters);
+        }
+        
+        /**
+         * Set headers.
+         *
+         * @param array $headers
+         * @return $this 
+         * @static 
+         */ 
+        public static function headers($headers)
+        {
+            return \Appstract\LushHttp\Lush::headers($headers);
+        }
+        
+        /**
+         * Set options.
+         *
+         * @param array $options
+         * @return $this 
+         * @static 
+         */ 
+        public static function options($options)
+        {
+            return \Appstract\LushHttp\Lush::options($options);
+        }
+        
+        /**
+         * Reset all request options.
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function reset()
+        {
+            return \Appstract\LushHttp\Lush::reset();
+        }
+        
+        /**
+         * Post as Json.
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function asJson()
+        {
+            return \Appstract\LushHttp\Lush::asJson();
+        }
+        
+        /**
+         * Post as form params.
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function asFormParams()
+        {
+            return \Appstract\LushHttp\Lush::asFormParams();
+        }
+        
+        /**
+         * Create a request.
+         *
+         * @param $method
+         * @return \Appstract\LushHttp\Response\LushResponse 
+         * @static 
+         */ 
+        public static function request($method)
+        {
+            return \Appstract\LushHttp\Lush::request($method);
+        }
+         
+    }
+ 
+}
+
 namespace Barryvdh\Debugbar { 
 
     class Facade {
@@ -12865,96 +12863,6 @@ namespace Barryvdh\Debugbar {
  
 }
 
-namespace Appstract\LushHttp { 
-
-    class LushFacade {
-        
-        /**
-         * Set the url with parameters.
-         *
-         * @param $url
-         * @param array|object $parameters
-         * @return $this 
-         * @static 
-         */ 
-        public static function url($url, $parameters = array())
-        {
-            return \Appstract\LushHttp\Lush::url($url, $parameters);
-        }
-        
-        /**
-         * Set headers.
-         *
-         * @param array $headers
-         * @return $this 
-         * @static 
-         */ 
-        public static function headers($headers)
-        {
-            return \Appstract\LushHttp\Lush::headers($headers);
-        }
-        
-        /**
-         * Set options.
-         *
-         * @param array $options
-         * @return $this 
-         * @static 
-         */ 
-        public static function options($options)
-        {
-            return \Appstract\LushHttp\Lush::options($options);
-        }
-        
-        /**
-         * Reset all request options.
-         *
-         * @return $this 
-         * @static 
-         */ 
-        public static function reset()
-        {
-            return \Appstract\LushHttp\Lush::reset();
-        }
-        
-        /**
-         * Post as Json.
-         *
-         * @return $this 
-         * @static 
-         */ 
-        public static function asJson()
-        {
-            return \Appstract\LushHttp\Lush::asJson();
-        }
-        
-        /**
-         * Post as form params.
-         *
-         * @return $this 
-         * @static 
-         */ 
-        public static function asFormParams()
-        {
-            return \Appstract\LushHttp\Lush::asFormParams();
-        }
-        
-        /**
-         * Create a request.
-         *
-         * @param $method
-         * @return \Appstract\LushHttp\Response\LushResponse 
-         * @static 
-         */ 
-        public static function request($method)
-        {
-            return \Appstract\LushHttp\Lush::request($method);
-        }
-         
-    }
- 
-}
-
 namespace Laravel\Horizon { 
 
     class Horizon {
@@ -12983,8 +12891,6 @@ namespace  {
     class Config extends \Illuminate\Support\Facades\Config {}
 
     class Cookie extends \Illuminate\Support\Facades\Cookie {}
-
-    class Crypt extends \Illuminate\Support\Facades\Crypt {}
 
     class DB extends \Illuminate\Support\Facades\DB {}
 
@@ -15078,9 +14984,9 @@ namespace  {
 
     class View extends \Illuminate\Support\Facades\View {}
 
-    class Debugbar extends \Barryvdh\Debugbar\Facade {}
-
     class Lush extends \Appstract\LushHttp\LushFacade {}
+
+    class Debugbar extends \Barryvdh\Debugbar\Facade {}
 
     class Horizon extends \Laravel\Horizon\Horizon {}
  
