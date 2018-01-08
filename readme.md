@@ -2,7 +2,6 @@
 
 **PHP**
 - [Laravel Horizon](https://github.com/laravel/horizon)
-- [Laravel Dusk](https://github.com/laravel/dusk)
 - [Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar)
 - [Laravel IDE Helper](https://github.com/barryvdh/laravel-ide-helper)
 - [Colission](https://github.com/nunomaduro/collision)
@@ -18,6 +17,13 @@
 - [Laravel Mix](https://github.com/JeffreyWay/laravel-mix)
 - [jQuery](https://github.com/jquery/jquery)
 - [axios](https://github.com/axios/axios)
+
+
+## Installation
+
+```bash
+git clone https://github.com/fridzema/laravel-project-boilerplate && cd laravel-project-boilerplate && cp .env.example .env && composer install
+```
 
 ## Contributing
 Feel free to contribute
